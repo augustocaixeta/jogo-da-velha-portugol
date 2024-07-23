@@ -28,6 +28,8 @@ programa {
         faca {
           mostrarTabuleiro()
 
+          escreva("\n")
+
           escreva("A: ")
           leia(a)
           
@@ -40,8 +42,32 @@ programa {
       
       mat[a][b] = C
 
-      mostrarTabuleiro()
+      se (houveVencedor() == 0) {
+        mostrarTabuleiro()
+      } senao {
+        limpa()
+        escreva("Vencedor...\n")
+
+        pare
+      }
     }
+  }
+
+  funcao inteiro houveVencedor() {
+    se (
+        (mat[0][0] == mat[0][1] e mat[0][0] == mat[0][2] e mat[0][0] != ' ') ou
+        (mat[0][0] == mat[1][1] e mat[0][0] == mat[2][2] e mat[0][0] != ' ') ou
+			  (mat[0][0] == mat[1][0] e mat[0][0] == mat[2][0] e mat[0][0] != ' ') ou
+			  (mat[0][1] == mat[1][1] e mat[0][1] == mat[2][1] e mat[0][1] != ' ') ou
+			  (mat[0][2] == mat[1][2] e mat[0][2] == mat[2][2] e mat[0][2] != ' ') ou
+			  (mat[1][0] == mat[1][1] e mat[1][0] == mat[1][2] e mat[1][0] != ' ') ou
+			  (mat[2][0] == mat[2][1] e mat[2][0] == mat[2][2] e mat[2][0] != ' ') ou
+			  (mat[2][0] == mat[1][1] e mat[2][0] == mat[0][2] e mat[2][0] != ' ')
+    ) {
+      retorne 1
+    }
+
+    retorne 0
   }
 
   funcao vazio iniciarTabuleiro() {
