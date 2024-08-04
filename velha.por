@@ -1,10 +1,4 @@
 programa {
-  /**
-   * TODO:
-   * 
-   * Terminar a parte de fazer as possibilidades de vencer.
-   */
-
   inteiro
       rodada = 1, a = 0, b = 0
 
